@@ -32,30 +32,62 @@
 
 ```mermaid
 flowchart TB
-    subgraph UI ["🖥️ Presentation Layer"]
-        Shell["PulseGuard.Shell (WPF / Fluent)"]
-    end
+    %% Styling & Spacing
+    classDef zone fill:#0d1117,stroke:#30363d,stroke-width:1.5px,color:#c9d1d9;
+    classDef primary fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#ffffff;
+    classDef security fill:#161b22,stroke:#f85149,stroke-width:2px,color:#ffffff;
+    classDef data fill:#161b22,stroke:#3fb950,stroke-width:2px,color:#ffffff;
 
-    subgraph Core ["⚙️ Core Engine Modules"]
+    subgraph Entry [" 🖥️ CLIENT PRESENTATION & ORCHESTRATION LAYER "]
         direction TB
-        Health["PulseGuard.Core.HealthMonitor\n• CPU/RAM/VRAM Pollers\n• Thermal Throttling Alerts"]
-        Booster["PulseGuard.Core.GamingBooster\n• Process Core Affinity\n• MMCSS Multimedia Scheduling\n• Dynamic RAM Trimming"]
-        Disk["PulseGuard.Core.DiskHealth\n• S.M.A.R.T. Telemetry\n• NVMe Wear Forecaster"]
-        Clean["PulseGuard.Core.SystemCleanup\n• Safe Cache Elimination\n• Browser & Dump Shredder"]
+        Shell["PulseGuard.Shell (WPF Fluent UI)<br/><sub>Dark-Mode Desktop Dashboard • Real-Time Visual Gauges</sub>"]:::primary
+        Scheduler["PulseGuard.Core.Scheduler<br/><sub>High-Resolution Event Loop • Background Dispatcher</sub>"]:::primary
     end
 
-    subgraph Safety ["🛡️ Safety & Reliability"]
-        SafetyMgr["PulseGuard.Safety\n• VSS System Restore Checkpoint\n• Immutable Whitelist Guard\n• Dry-Run Audit Engine"]
+    subgraph DiagnosticsZone [" 🔍 REGION 1: HARDWARE & STORAGE DIAGNOSTICS "]
+        direction TB
+        Health["HealthMonitorManager<br/>• CPU, RAM & VRAM Pollers<br/>• Thermal Throttling Alerts"]:::primary
+        DiskHealth["DiskHealthManager<br/>• S.M.A.R.T. Drive Interrogation<br/>• IOPS & Storage Pool Sentry"]:::primary
+        WearForecast["StorageForecaster<br/>• NVMe Endurance Decay Model<br/>• Daily Lifetime Projection (GB/d)"]:::primary
     end
 
-    subgraph Storage ["💾 Persistence"]
-        DB[("PulseGuard.Data\nSQLite Engine")]
+    subgraph BoosterZone [" ⚡ REGION 2: ESPORTS GAMING & OS OPTIMIZER "]
+        direction TB
+        Esports["EsportsEngine<br/>• Process Affinity Lock<br/>• Dedicated CPU Core Isolation"]:::primary
+        OSOptimizer["AdvancedOSOptimizer<br/>• MMCSS Priority Realignment<br/>• Non-Blocking Standby List Trim"]:::primary
+        Cleanup["SystemCleanupManager<br/>• Safe Temp & Dump Shredder<br/>• Cache Reclaim Engine"]:::primary
     end
 
-    Shell --> Core
-    Core --> SafetyMgr
-    Core --> DB
-    SafetyMgr -.->|Pre-Execution Gate| Clean
+    subgraph SecurityGate [" 🛡️ CENTRAL TRANSIT: SAFETY & INTEGRITY GATEWAY "]
+        direction TB
+        VSS["RestorePointManager<br/><sub>VSS System Restore Point Checkpoint</sub>"]:::security
+        Whitelist["WhitelistGuard<br/><sub>Critical Driver Store & Boot Cache Guard</sub>"]:::security
+        Audit["AuditEngine<br/><sub>Pre-Execution Dry-Run Verifier</sub>"]:::security
+    end
+
+    subgraph Persistence [" 💾 PERSISTENCE & ANALYTICS DATA PLANE "]
+        direction LR
+        DB[("PulseGuard.Data<br/>SQLite Storage Engine")]:::data
+        Reporting["PulseGuard.Core.Reporting<br/>• BenchmarkEngine<br/>• HTML Telemetry Exporter"]:::data
+    end
+
+    %% Spacious Architectural Connections
+    Shell ------------->|User Directives & Settings| Scheduler
+    Scheduler ---------->|High-Frequency Sampling| Health
+    Scheduler ---------->|Game Launch Detection| Esports
+    
+    Health ------------->|Raw Drive Telemetry| DiskHealth
+    DiskHealth --------->|Wear Metrics Stream| WearForecast
+    
+    Esports ------------>|Audio / Render Priority| OSOptimizer
+    OSOptimizer -------->|Scheduled Cache Maintenance| Cleanup
+
+    Cleanup ------------>|Sanitization Request| SecurityGate
+    SecurityGate -.-.-.->|Restore Point Verified| DB
+    
+    WearForecast ------->|Long-Term Projections| DB
+    Health ------------->|Aggregated Metrics| DB
+    DB ----------------->|Historical Aggregation| Reporting
 ```
 
 ---
