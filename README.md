@@ -2,12 +2,11 @@
 
 # ⚡ PulseGuard
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=620&lines=Enterprise-Grade+Windows+System+Telemetry;Low-Latency+eSports+Gaming+Booster;Predictive+NVMe%2FSSD+Wear+Forecasting;Zero-Data-Loss+Safety-First+Cleanup" alt="Typing SVG" />
-</p>
+### Next-Generation Windows Optimization, Diagnostic Telemetry & Gaming Performance Suite
+**.NET 8 LTS • C# 12 • WPF Fluent UI • Low-Latency Gaming Booster • Predictive NVMe Health**
 
 <p align="center">
-  <strong>Next-Generation Windows Optimization, Diagnostic Telemetry & Gaming Performance Suite</strong>
+  <em>Enterprise-grade system telemetry, MMCSS latency tuning, and predictive storage wear forecasting with zero-data-loss safety restore points.</em>
 </p>
 
 <!-- Badges -->
@@ -144,3 +143,4 @@ Crafted with high engineering precision by **[Anudeep Adari](https://github.com/
 Continuous AI Code Reviews powered by **CodeRabbit**
 
 </div>
+
