@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\PulseGuard.Safety\PulseGuard.Safety.csproj" />
+    <ProjectReference Include="..\PulseGuard.Data\PulseGuard.Data.csproj" />
+    <ProjectReference Include="..\PulseGuard.Core.DiskHealth\PulseGuard.Core.DiskHealth.csproj" />
+    <ProjectReference Include="..\PulseGuard.Core.SystemCleanup\PulseGuard.Core.SystemCleanup.csproj" />
+    <ProjectReference Include="..\PulseGuard.Core.GamingBooster\PulseGuard.Core.GamingBooster.csproj" />
+    <ProjectReference Include="..\PulseGuard.Core.HealthMonitor\PulseGuard.Core.HealthMonitor.csproj" />
+    <ProjectReference Include="..\PulseGuard.Core.Scheduler\PulseGuard.Core.Scheduler.csproj" />
+    <ProjectReference Include="..\PulseGuard.Core.Reporting\PulseGuard.Core.Reporting.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\logo.png" />
+  </ItemGroup>
+
+</Project>

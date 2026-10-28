@@ -1,0 +1,16 @@
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+dist/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
+*.exe
+*.dll
