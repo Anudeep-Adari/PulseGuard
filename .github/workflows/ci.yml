@@ -1,27 +1,8 @@
 name: PulseGuard CI
 
+# Manual on-demand execution only (zero automatic runner minute consumption)
 on:
-  push:
-    branches: [ main ]
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - 'assets/**'
-      - '.gitignore'
-      - '.coderabbit.yaml'
-  pull_request:
-    branches: [ main ]
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - 'assets/**'
-      - '.gitignore'
-      - '.coderabbit.yaml'
   workflow_dispatch:
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   build-and-test:
