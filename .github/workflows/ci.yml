@@ -3,14 +3,31 @@ name: PulseGuard CI
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'assets/**'
+      - '.gitignore'
+      - '.coderabbit.yaml'
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'assets/**'
+      - '.gitignore'
+      - '.coderabbit.yaml'
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-test:
     name: Build & Test (.NET 8 LTS)
     runs-on: windows-latest
+    timeout-minutes: 8
 
     steps:
       - name: Checkout Repository
